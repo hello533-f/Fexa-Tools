@@ -1,69 +1,123 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fexa Tools — Free Online Tools</title>
-<meta name="description" content="Free online text, calculator and developer tools.">
+<title>Fexa Tools - Free Online Tools</title>
+<meta name="description" content="Free online text tools, calculators, developer utilities and everyday tools.">
+<meta name="theme-color" content="#4f46e5">
+
 <style>
-:root{--bg:#f7f8fc;--ink:#171a2b;--muted:#697087;--line:#e5e8f1;--blue:#4f46e5}
+:root{--bg:#f7f8fc;--card:#fff;--ink:#171a2b;--muted:#687087;--line:#e5e8f1;--blue:#4f46e5;--cyan:#06b6d4}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,Arial,sans-serif}
-header{background:white;border-bottom:1px solid var(--line);padding:16px 5%;font-size:24px;font-weight:850}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px 5%;font-size:25px;font-weight:850}
 header span{color:var(--blue)}
-main{max-width:1100px;margin:auto;padding:24px 16px}
-h1{font-size:clamp(30px,5vw,44px);line-height:1.12;margin:12px 0}
+main{max-width:1120px;margin:auto;padding:24px 16px}
+.hero{padding:24px 0}
+.hero small{font-weight:800;color:var(--blue);letter-spacing:2px}
+h1{font-size:clamp(30px,6vw,48px);line-height:1.12;margin:12px 0}
 h1 span{color:var(--blue)}
 p{color:var(--muted)}
-.search{display:flex;gap:8px;margin:20px 0}
-input,textarea,select{width:100%;padding:12px;border:1px solid #dfe3ee;border-radius:11px;font:inherit;background:white}
-textarea{min-height:130px}
+.search{display:flex;gap:9px;margin:22px 0}
+input,textarea,select{width:100%;padding:12px;border:1px solid #dfe3ee;border-radius:11px;font:inherit;background:white;color:var(--ink)}
+textarea{min-height:135px;resize:vertical}
 button{border:0;border-radius:10px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer}
+button:focus,input:focus,textarea:focus,select:focus{outline:2px solid #a5b4fc;outline-offset:2px}
 .primary{background:var(--blue);color:white}
 .secondary,.chip{background:#eef0f8;color:#30364e}
-.categories{display:flex;gap:8px;overflow:auto;margin:15px 0}
+.categories{display:flex;gap:8px;overflow-x:auto;padding:8px 0 15px}
 .chip{white-space:nowrap}
 .chip.active{background:#e4e7ff;color:#3730a3}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
-.card,.workspace{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 8px 24px #20264b0b}
-.card h3{margin:5px 0;font-size:16px}
-.card p{font-size:13px;min-height:40px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card,.workspace{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 8px 24px #20264b0b}
+.card h3{margin:6px 0;font-size:16px}
+.card p{font-size:13px;min-height:42px}
 .card button{width:100%}
-.icon{font-size:22px}
+.icon{font-size:24px}
 .workspace{margin-top:24px}
 .workspace[hidden]{display:none}
-.head{display:flex;justify-content:space-between;gap:10px}
+.head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .head h2{margin:0}
-.label{display:block;margin:12px 0 5px;font-weight:700;font-size:13px}
-.actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.label{display:block;margin:12px 0 5px;font-weight:750;font-size:13px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
 .output{background:#f8f9fd;border:1px solid var(--line);border-radius:10px;padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:65px}
-.status{color:#b42318;font-size:13px}
-.ad{margin:20px 0;min-height:55px;border:1px dashed #d8dcea;border-radius:10px;display:grid;place-items:center;color:#8990a6;font-size:11px}
-footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid var(--line)}
-@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:440px){.grid{grid-template-columns:1fr}.search{flex-direction:column}}
+.status{color:#b42318;font-size:13px;margin:8px 0}
+.ad{margin:22px auto;text-align:center;overflow:hidden;max-width:100%;min-height:55px}
+.ad-label{font-size:10px;color:#9298a8;letter-spacing:1px;margin-bottom:4px}
+.ad-box{display:flex;justify-content:center;align-items:center;max-width:100%;overflow:hidden}
+footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:450px){.grid{grid-template-columns:1fr}.search{flex-direction:column}.head h2{font-size:20px}}
 </style>
+
+<!-- Adsterra script 1: supplied by you -->
+<script data-cfasync="false" src="https://abscloud.org/1/3f1b08d56ae46393f48d7b3776a8f7f5"></script>
+
+<!-- Adsterra script 3: supplied by you -->
+<script data-cfasync="false" src="https://bauval.org/14/1d1879c1296faf22b193632d7beeab07"></script>
 </head>
 <body>
 <header>Fexa <span>Tools</span></header>
 
 <main>
-<section>
+<section class="hero">
 <small>FREE ONLINE TOOLKIT</small>
-<h1>Useful tools for <span>everyday work.</span></h1>
-<p>Free browser-based text tools, calculators and developer utilities. No account needed.</p>
+<h1>Simple tools for <span>everyday work.</span></h1>
+<p>Text utilities, calculators and developer tools. Use them directly in your browser.</p>
 <div class="search">
 <input id="search" placeholder="Search tools..." aria-label="Search tools">
 <button class="primary" id="searchBtn" type="button">Search</button>
 </div>
 </section>
 
-<div class="ad">ADVERTISEMENT</div>
-<h2>Explore tools <small id="count" style="color:#697087;font-size:13px"></small></h2>
+<!-- Ad placement 2 -->
+<div class="ad">
+<div class="ad-label">ADVERTISEMENT</div>
+<div class="ad-box">
+<script async="async" data-cfasync="false" src="https://bauval.org/21/73f48bba913cccbbee967a63eb1c42dd"></script>
+<div id="container-73f48bba913cccbbee967a63eb1c42dd"></div>
+</div>
+</div>
+
+<h2>Explore Tools <small id="count" style="color:#687087;font-size:13px"></small></h2>
 <div class="categories" id="categories"></div>
 <section class="grid" id="grid"></section>
-<div class="ad">ADVERTISEMENT</div>
+
+<!-- Ad placement 4: 320 x 50 -->
+<div class="ad">
+<div class="ad-label">ADVERTISEMENT</div>
+<div class="ad-box">
+<script>
+atOptions = {
+ 'key' : 'b6b9df6bd3dd5c323fd5a252fcb2a1e4',
+ 'format' : 'iframe',
+ 'height' : 50,
+ 'width' : 320,
+ 'params' : {}
+};
+</script>
+<script src="https://bauval.org/22/b6b9df6bd3dd5c323fd5a252fcb2a1e4"></script>
+</div>
+</div>
+
+<!-- Ad placement 5: 468 x 60 -->
+<div class="ad">
+<div class="ad-label">ADVERTISEMENT</div>
+<div class="ad-box">
+<script>
+atOptions = {
+ 'key' : '7ef6d48c18f3537e813f4fd3d44e5adb',
+ 'format' : 'iframe',
+ 'height' : 60,
+ 'width' : 468,
+ 'params' : {}
+};
+</script>
+<script src="https://bauval.org/22/7ef6d48c18f3537e813f4fd3d44e5adb"></script>
+</div>
+</div>
 
 <section class="workspace" id="workspace" hidden>
 <div class="head">
@@ -72,22 +126,38 @@ footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid va
 </div>
 <div id="inputs"></div>
 <div class="actions">
-<button class="primary" id="run" type="button">Run tool</button>
+<button class="primary" id="run" type="button">Run Tool</button>
 <button class="secondary" id="clear" type="button">Clear</button>
-<button class="secondary" id="copy" type="button">Copy result</button>
-<button class="secondary" id="download" type="button">Download</button>
+<button class="secondary" id="copy" type="button">Copy Result</button>
+<button class="secondary" id="download" type="button">Download Result</button>
 </div>
-<div class="status" id="status"></div>
+<div class="status" id="status" role="status"></div>
 <b class="label">Result</b>
-<div class="output" id="result">Your result will appear here.</div>
+<div class="output" id="result" aria-live="polite">Your result will appear here.</div>
 </section>
+
+<!-- Ad placement 6: 300 x 250 -->
+<div class="ad">
+<div class="ad-label">ADVERTISEMENT</div>
+<div class="ad-box">
+<script>
+atOptions = {
+ 'key' : '5fedc7ba23cff82d6eb2985907d58bff',
+ 'format' : 'iframe',
+ 'height' : 250,
+ 'width' : 300,
+ 'params' : {}
+};
+</script>
+<script src="https://bauval.org/22/5fedc7ba23cff82d6eb2985907d58bff"></script>
+</div>
+</div>
 </main>
 
 <footer>© <span id="year"></span> Fexa Tools · Free browser-based utilities</footer>
 
 <script>
 "use strict";
-
 const $ = id => document.getElementById(id);
 
 const data = [
@@ -97,15 +167,19 @@ const data = [
 ["Text","Duplicate Line Remover","☷","Remove repeated lines."],
 ["Text","Reverse Text","⇄","Reverse your text."],
 ["Text","Lorem Ipsum Generator","¶","Generate placeholder text."],
-["Text","Find and Replace Text","⌕","Replace a phrase in your text."],
+["Text","Find and Replace Text","⌕","Replace phrases in text."],
 ["Text","Text to Binary Converter","01","Convert text to binary."],
 ["Text","Word Frequency Counter","▤","Count repeated words."],
 ["Text","Alphabetical List Sorter","↕","Sort lines alphabetically."],
 ["Text","Line Numbering Tool","№","Add line numbers."],
 ["Text","Text Summarizer","≡","Create a basic extractive summary."],
-["Text","Grammar & Sentence Refiner","✎","Fix common spacing."],
+["Text","Grammar & Sentence Refiner","✎","Fix common spacing and punctuation."],
 ["Text","Email & Message Writer","✉","Draft a basic message."],
 ["Text","Poetry Prompt Generator","♡","Create a poetry prompt."],
+["Text","Startup Idea Brainstormer","💡","Generate simple project ideas."],
+["Text","Product Name Generator","✦","Suggest product names and taglines."],
+["Text","Quiz & Question Generator","❔","Create questions from a topic."],
+["Text","Emoji Story & Sentiment Analyzer","🙂","Estimate sentiment using keywords."],
 ["Developer","JSON Formatter & Validator","{}","Format and validate JSON."],
 ["Developer","Base64 Encoder / Decoder","64","Encode or decode Base64."],
 ["Developer","URL Encoder / Decoder","🔗","Encode or decode URL text."],
@@ -114,363 +188,194 @@ const data = [
 ["Developer","HTML Entity Encoder","</>","Encode HTML special characters."],
 ["Developer","HTML Entity Decoder","<>","Decode HTML entities."],
 ["Developer","Password Strength Checker","🔐","Estimate password strength."],
-["Calculator","Percentage & Discount Calculator","%","Calculate percentage and discount."],
-["Calculator","Age Calculator","🎂","Calculate age from birth date."],
+["Calculator","Percentage & Discount Calculator","%","Calculate percentages and discounts."],
+["Calculator","Age Calculator","🎂","Calculate age from date of birth."],
 ["Calculator","Temperature Converter","🌡","Convert Celsius, Fahrenheit and Kelvin."],
 ["Calculator","Data Storage Converter","💾","Convert KB, MB, GB and TB."],
-["Calculator","Leap Year Checker","📅","Check leap years."],
+["Calculator","Leap Year Checker","📅","Check whether a year is a leap year."],
 ["Calculator","BMI Calculator","⚖","Calculate body mass index."],
-["Calculator","Average Calculator","∑","Calculate an average."],
-["Calculator","Random Number Generator","🎲","Generate a random number."],
+["Calculator","Average Calculator","∑","Calculate an average from numbers."],
+["Calculator","Random Number Generator","🎲","Generate a random integer."],
 ["Utility","Daily Planner Template","🗓","Create a simple daily plan."],
 ["Utility","Checklist Maker","☑","Turn lines into a checklist."],
-["Utility","Social Media Image Size Guide","📱","View common image sizes."],
-["Utility","Read Time Calculator","◷","Estimate reading time."]
+["Utility","Social Media Image Size Guide","📱","View common image dimensions."],
+["Utility","Read Time Calculator","◷","Estimate reading time."],
+["Utility","Character Limit Checker","#","Check text length against a limit."],
+["Utility","Text to Binary Decoder","10","Convert binary bytes to text."],
+["Utility","Word and Line Sorter","↕","Sort lines ascending or descending."],
+["Utility","Random Password Generator","🔑","Generate a random password."],
+["Utility","Percentage Increase Calculator","📈","Calculate percentage change."],
+["Utility","Simple Interest Calculator","💰","Calculate simple interest."],
+["Utility","Compound Interest Calculator","📊","Estimate compound interest."],
+["Utility","Days Between Dates","📆","Calculate days between two dates."],
+["Utility","Hours to Minutes Converter","⏱","Convert time units."],
+["Utility","Kilometers to Miles Converter","🚗","Convert distance units."],
+["Utility","Weight Converter","⚖","Convert kilograms and pounds."],
+["Utility","Case Alternator","Aa","Alternate text letter case."],
+["Utility","Remove Empty Lines","☷","Remove blank lines from text."],
+["Utility","Text Repeater","×","Repeat text a chosen number of times."],
+["Utility","HTML Preview Text","<>","Show HTML source as safe plain text."],
+["Utility","Reading Word Counter","📖","Count words and estimate reading time."],
+["Utility","Daily Affirmation Generator","☀","Generate a positive affirmation."],
+["Utility","Study Schedule Generator","📚","Create a basic study schedule."]
 ];
 
-const cats = ["All","Text","Developer","Calculator","Utility"];
-let active = "All";
-let selected = null;
+const cats=["All","Text","Developer","Calculator","Utility"];
+let active="All",selected=null;
 
-function esc(s) {
- return String(s).replace(/[&<>"']/g, c => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- })[c]);
+function esc(s){
+ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
-
-function renderCats() {
- $("categories").innerHTML = cats.map(c =>
-  `<button type="button" class="chip ${active===c?"active":""}" data-cat="${c}">${c==="All"?"All tools":c}</button>`
+function renderCats(){
+ $("categories").innerHTML=cats.map(c=>
+ `<button type="button" class="chip ${active===c?"active":""}" data-cat="${c}">${c==="All"?"All tools":c}</button>`
  ).join("");
 }
-
-function render() {
- const q = $("search").value.trim().toLowerCase();
- const list = data.filter(t =>
-  (active==="All" || t[0]===active) &&
-  (!q || t.join(" ").toLowerCase().includes(q))
- );
- $("count").textContent = `— ${list.length} tools`;
- $("grid").innerHTML = list.map(t =>
-  `<article class="card">
-   <div class="icon">${t[2]}</div>
-   <h3>${esc(t[1])}</h3>
-   <p>${esc(t[3])}</p>
-   <button type="button" class="primary" data-open="${data.indexOf(t)}">Open Tool</button>
-  </article>`
- ).join("") || "<p>No tools found. Try another search.</p>";
+function render(){
+ const q=$("search").value.trim().toLowerCase();
+ const list=data.filter(t=>(active==="All"||t[0]===active)&&(!q||t.join(" ").toLowerCase().includes(q)));
+ $("count").textContent=`— ${list.length} tools`;
+ $("grid").innerHTML=list.map(t=>`<article class="card">
+ <div class="icon">${t[2]}</div><h3>${esc(t[1])}</h3><p>${esc(t[3])}</p>
+ <button type="button" class="primary" data-open="${data.indexOf(t)}">Open Tool</button>
+ </article>`).join("")||"<p>No tools found. Try another search.</p>";
 }
-
-function openTool(index) {
- selected = data[Number(index)];
- if (!selected) return;
-
- const name = selected[1];
- $("title").textContent = name;
- $("description").textContent = selected[3];
-
- let extra = "";
-
- if(name==="Find and Replace Text")
-  extra='<label class="label">Find</label><input id="find" placeholder="Find this text"><label class="label">Replace with</label><input id="replace" placeholder="Replacement">';
-
- if(name==="Lorem Ipsum Generator")
-  extra='<label class="label">Paragraphs (1–10)</label><input id="amount" type="number" min="1" max="10" value="3">';
-
- if(name==="Percentage & Discount Calculator")
-  extra='<label class="label">Original amount</label><input id="a" type="number" value="100"><label class="label">Percentage</label><input id="b" type="number" value="15">';
-
- if(name==="Age Calculator")
-  extra='<label class="label">Date of birth</label><input id="birth" type="date">';
-
- if(name==="Temperature Converter")
-  extra='<label class="label">Value</label><input id="a" type="number" value="25"><label class="label">Convert from</label><select id="unit"><option>C</option><option>F</option><option>K</option></select>';
-
- if(name==="Data Storage Converter")
-  extra='<label class="label">Value</label><input id="a" type="number" value="1"><label class="label">Unit</label><select id="unit"><option>KB</option><option>MB</option><option>GB</option><option>TB</option></select>';
-
- if(name==="Leap Year Checker")
-  extra='<label class="label">Year</label><input id="a" type="number" value="2028">';
-
- if(name==="BMI Calculator")
-  extra='<label class="label">Weight (kg)</label><input id="a" type="number" value="60"><label class="label">Height (cm)</label><input id="b" type="number" value="170">';
-
- if(name==="Random Number Generator")
-  extra='<label class="label">Minimum</label><input id="a" type="number" value="1"><label class="label">Maximum</label><input id="b" type="number" value="100">';
-
- const noText = [
-  "Age Calculator","Temperature Converter","Data Storage Converter",
-  "Leap Year Checker","Social Media Image Size Guide","Daily Planner Template"
- ].includes(name);
-
- $("inputs").innerHTML =
-  (noText ? "" : '<label class="label" for="input">Enter text or data</label><textarea id="input" placeholder="Type or paste here..."></textarea>') + extra;
-
- $("result").textContent = "Your result will appear here.";
- $("status").textContent = "";
- $("workspace").hidden = false;
+function openTool(index){
+ selected=data[Number(index)];
+ if(!selected)return;
+ const name=selected[1];
+ $("title").textContent=name;
+ $("description").textContent=selected[3];
+ let extra="";
+ if(name==="Find and Replace Text")extra='<label class="label">Find</label><input id="find" placeholder="Find this text"><label class="label">Replace with</label><input id="replace" placeholder="Replacement">';
+ if(name==="Lorem Ipsum Generator")extra='<label class="label">Paragraphs (1–10)</label><input id="amount" type="number" min="1" max="10" value="3">';
+ if(name==="Percentage & Discount Calculator")extra='<label class="label">Original amount</label><input id="a" type="number" value="100"><label class="label">Percentage</label><input id="b" type="number" value="15">';
+ if(name==="Age Calculator")extra='<label class="label">Date of birth</label><input id="birth" type="date">';
+ if(name==="Temperature Converter")extra='<label class="label">Value</label><input id="a" type="number" value="25"><label class="label">Convert from</label><select id="unit"><option>C</option><option>F</option><option>K</option></select>';
+ if(name==="Data Storage Converter")extra='<label class="label">Value</label><input id="a" type="number" value="1"><label class="label">Unit</label><select id="unit"><option>KB</option><option>MB</option><option>GB</option><option>TB</option></select>';
+ if(name==="Leap Year Checker")extra='<label class="label">Year</label><input id="a" type="number" value="2028">';
+ if(name==="BMI Calculator")extra='<label class="label">Weight (kg)</label><input id="a" type="number" value="60"><label class="label">Height (cm)</label><input id="b" type="number" value="170">';
+ if(name==="Random Number Generator")extra='<label class="label">Minimum</label><input id="a" type="number" value="1"><label class="label">Maximum</label><input id="b" type="number" value="100">';
+ if(name==="Character Limit Checker")extra='<label class="label">Character limit</label><input id="limit" type="number" min="1" value="160">';
+ if(name==="Random Password Generator")extra='<label class="label">Password length (8–64)</label><input id="length" type="number" min="8" max="64" value="16">';
+ if(name==="Percentage Increase Calculator")extra='<label class="label">Starting value</label><input id="a" type="number" value="100"><label class="label">New value</label><input id="b" type="number" value="120">';
+ if(name==="Simple Interest Calculator"||name==="Compound Interest Calculator"){
+ extra='<label class="label">Principal amount</label><input id="a" type="number" value="1000"><label class="label">Annual rate (%)</label><input id="b" type="number" value="5"><label class="label">Years</label><input id="years" type="number" value="2">';
+ if(name==="Compound Interest Calculator")extra+='<label class="label">Compounds per year</label><input id="freq" type="number" value="12">';
+ }
+ if(name==="Days Between Dates")extra='<label class="label">Start date</label><input id="date1" type="date"><label class="label">End date</label><input id="date2" type="date">';
+ if(name==="Hours to Minutes Converter")extra='<label class="label">Hours</label><input id="a" type="number" value="2">';
+ if(name==="Kilometers to Miles Converter")extra='<label class="label">Kilometers</label><input id="a" type="number" value="5">';
+ if(name==="Weight Converter")extra='<label class="label">Value</label><input id="a" type="number" value="10"><label class="label">Convert from</label><select id="unit"><option>kg</option><option>lb</option></select>';
+ if(name==="Text Repeater")extra='<label class="label">Repeat count (1–100)</label><input id="amount" type="number" min="1" max="100" value="3">';
+ if(name==="Daily Planner Template"||name==="Study Schedule Generator"||name==="Daily Affirmation Generator"||name==="Social Media Image Size Guide"){}
+ if(name==="Text to Binary Decoder"){}
+ if(name==="Word and Line Sorter")extra='<label class="label">Sort order</label><select id="order"><option value="asc">Ascending</option><option value="desc">Descending</option></select>';
+ const noText=["Age Calculator","Temperature Converter","Data Storage Converter","Leap Year Checker","BMI Calculator","Random Number Generator","Simple Interest Calculator","Compound Interest Calculator","Days Between Dates","Hours to Minutes Converter","Kilometers to Miles Converter","Weight Converter","Social Media Image Size Guide","Daily Planner Template","Study Schedule Generator","Daily Affirmation Generator"].includes(name);
+ $("inputs").innerHTML=(noText?"":'<label class="label" for="input">Enter text or data</label><textarea id="input" placeholder="Type or paste here..."></textarea>')+extra;
+ $("result").textContent="Your result will appear here.";
+ $("status").textContent="";
+ $("workspace").hidden=false;
  $("workspace").scrollIntoView({behavior:"smooth",block:"start"});
 }
+function val(id){const e=$(id);return e?e.value:"";}
+function num(id,def=0){const n=Number(val(id));return Number.isFinite(n)?n:def;}
 
-function get(id) {
- const el = $(id);
- return el ? el.value : "";
-}
-
-function runTool() {
- if (!selected) return;
-
- const name = selected[1];
- const v = get("input");
- let r = "";
-
- try {
-  switch(name) {
-   case "Word & Character Counter":
-    r=`Characters: ${v.length}\nWords: ${v.trim()?v.trim().split(/\s+/).length:0}\nLines: ${v?v.split(/\r?\n/).length:0}`;
-    break;
-
-   case "Case Converter":
-    r=`UPPERCASE:\n${v.toUpperCase()}\n\nlowercase:\n${v.toLowerCase()}\n\nTitle Case:\n${v.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase())}`;
-    break;
-
-   case "Remove Extra Spaces":
-    r=v.split(/\r?\n/).map(s=>s.replace(/[ \t]+/g," ").trim()).filter(Boolean).join("\n");
-    break;
-
-   case "Duplicate Line Remover":
-    r=[...new Set(v.split(/\r?\n/))].join("\n");
-    break;
-
-   case "Reverse Text":
-    r=Array.from(v).reverse().join("");
-    break;
-
-   case "Lorem Ipsum Generator":
-    r=Array(Math.max(1,Math.min(10,Number(get("amount"))||3))).fill("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae justo sed sapien tempor tincidunt.").join("\n\n");
-    break;
-
-   case "Find and Replace Text":
-    r=get("find") ? v.split(get("find")).join(get("replace")) : "Enter text to find.";
-    break;
-
-   case "Text to Binary Converter":
-    r=Array.from(new TextEncoder().encode(v)).map(b=>b.toString(2).padStart(8,"0")).join(" ");
-    break;
-
-   case "Word Frequency Counter": {
-    const m={};
-    (v.toLowerCase().match(/[a-z0-9']+/g)||[]).forEach(w=>m[w]=(m[w]||0)+1);
-    r=Object.entries(m).sort((a,b)=>b[1]-a[1]).map(([w,c])=>`${w}: ${c}`).join("\n");
-    break;
-   }
-
-   case "Alphabetical List Sorter":
-    r=v.split(/\r?\n/).sort((a,b)=>a.localeCompare(b)).join("\n");
-    break;
-
-   case "Line Numbering Tool":
-    r=v.split(/\r?\n/).map((s,i)=>`${i+1}. ${s}`).join("\n");
-    break;
-
-   case "Text Summarizer": {
-    const s=v.split(/(?<=[.!?])\s+/).filter(Boolean);
-    r=s.slice(0,Math.max(1,Math.ceil(s.length/3))).join(" ")||"Enter text first.";
-    break;
-   }
-
-   case "Grammar & Sentence Refiner":
-    r=v.replace(/\s+/g," ").trim().replace(/\bi\b/g,"I").replace(/\s+([,.!?])/g,"$1");
-    break;
-
-   case "Email & Message Writer":
-    r=v?`Hello,\n\nI am writing regarding ${v}. Please let me know when you are available to discuss this.\n\nThank you.`:"Enter the message purpose first.";
-    break;
-
-   case "Poetry Prompt Generator":
-    r=v?`Write original heartfelt poetry about "${v}". Use natural language and vivid imagery.`:"Enter a theme first.";
-    break;
-
-   case "JSON Formatter & Validator":
-    r=JSON.stringify(JSON.parse(v),null,2);
-    break;
-
-   case "Base64 Encoder / Decoder":
-    try { r=decodeURIComponent(escape(atob(v.trim()))); }
-    catch(e) { r=btoa(unescape(encodeURIComponent(v))); }
-    break;
-
-   case "URL Encoder / Decoder":
-    try { r=decodeURIComponent(v); }
-    catch(e) { r=encodeURIComponent(v); }
-    break;
-
-   case "URL Slug Generator":
-    r=v.toLowerCase().trim().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-    break;
-
-   case "UUID Generator":
-    r=crypto.randomUUID ? crypto.randomUUID() : "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{const x=Math.random()*16|0;return(c==="x"?x:(x&3|8)).toString(16)});
-    break;
-
-   case "HTML Entity Encoder":
-    r=v.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
-    break;
-
-   case "HTML Entity Decoder": {
-    const t=document.createElement("textarea");
-    t.innerHTML=v;
-    r=t.value;
-    break;
-   }
-
-   case "Password Strength Checker": {
-    let s=0;
-    if(v.length>=8)s++;
-    if(v.length>=12)s++;
-    if(/[a-z]/.test(v)&&/[A-Z]/.test(v))s++;
-    if(/\d/.test(v))s++;
-    if(/[^A-Za-z0-9]/.test(v))s++;
-    r=`Strength: ${["Very weak","Weak","Fair","Good","Strong","Very strong"][s]}\nLength: ${v.length}`;
-    break;
-   }
-
-   case "Percentage & Discount Calculator": {
-    const a=Number(get("a")),b=Number(get("b"));
-    r=`${b}% of ${a}: ${(a*b/100).toFixed(2)}\nPrice after discount: ${(a-a*b/100).toFixed(2)}`;
-    break;
-   }
-
-   case "Age Calculator": {
-    const d=new Date(get("birth"));
-    if(!get("birth")||isNaN(d))throw Error("Choose a valid birth date.");
-    const now=new Date();
-    let age=now.getFullYear()-d.getFullYear();
-    if(now.getMonth()<d.getMonth()||(now.getMonth()===d.getMonth()&&now.getDate()<d.getDate()))age--;
-    r=`Age: ${age} years`;
-    break;
-   }
-
-   case "Temperature Converter": {
-    const x=Number(get("a")),u=get("unit");
-    const c=u==="C"?x:u==="F"?(x-32)*5/9:x-273.15;
-    r=`Celsius: ${c.toFixed(2)} °C\nFahrenheit: ${(c*9/5+32).toFixed(2)} °F\nKelvin: ${(c+273.15).toFixed(2)} K`;
-    break;
-   }
-
-   case "Data Storage Converter": {
-    const x=Number(get("a")),u=get("unit");
-    const k=x*1024**(["KB","MB","GB","TB"].indexOf(u));
-    r=`KB: ${k}\nMB: ${k/1024}\nGB: ${k/1024**2}\nTB: ${k/1024**3}`;
-    break;
-   }
-
-   case "Leap Year Checker": {
-    const y=Number(get("a"));
-    r=`${y} ${((y%4===0&&y%100!==0)||y%400===0)?"is":"is not"} a leap year.`;
-    break;
-   }
-
-   case "BMI Calculator": {
-    const w=Number(get("a")),h=Number(get("b"))/100;
-    if(w<=0||h<=0)throw Error("Enter positive weight and height.");
-    r=`BMI: ${(w/(h*h)).toFixed(1)}`;
-    break;
-   }
-
-   case "Average Calculator": {
-    const a=v.split(/[,\s]+/).map(Number).filter(Number.isFinite);
-    r=a.length?`Average: ${a.reduce((x,y)=>x+y,0)/a.length}`:"Enter numbers separated by commas.";
-    break;
-   }
-
-   case "Random Number Generator": {
-    let a=Number(get("a")),b=Number(get("b"));
-    if(a>b)[a,b]=[b,a];
-    r=String(Math.floor(Math.random()*(b-a+1))+a);
-    break;
-   }
-
-   case "Social Media Image Size Guide":
-    r="Instagram post: 1080 × 1080 px\nInstagram story: 1080 × 1920 px\nYouTube thumbnail: 1280 × 720 px\nFacebook post: 1200 × 630 px";
-    break;
-
-   case "Daily Planner Template":
-    r="Top priorities:\n1.\n2.\n3.\n\nMorning:\nAfternoon:\nEvening:\nNotes:";
-    break;
-
-   case "Checklist Maker":
-    r=v.split(/\r?\n/).filter(Boolean).map(x=>"- [ ] "+x).join("\n");
-    break;
-
-   case "Read Time Calculator":
-    r=`Words: ${v.trim()?v.trim().split(/\s+/).length:0}\nEstimated reading time: ${Math.max(1,Math.ceil((v.trim()?v.trim().split(/\s+/).length:0)/200))} minute(s)`;
-    break;
-
-   default:
-    r="This tool is listed in the catalogue but is not implemented in this version yet.";
-  }
-
-  $("result").textContent=r;
-  $("status").textContent="";
- } catch(e) {
-  $("result").textContent="";
-  $("status").textContent="Could not process input: "+e.message;
+function runTool(){
+ if(!selected)return;
+ const name=selected[1],v=val("input");let r="";
+ try{
+ switch(name){
+ case "Word & Character Counter":r=`Characters: ${v.length}\nCharacters without spaces: ${v.replace(/\s/g,"").length}\nWords: ${v.trim()?v.trim().split(/\s+/).length:0}\nLines: ${v?v.split(/\r?\n/).length:0}`;break;
+ case "Case Converter":r=`UPPERCASE:\n${v.toUpperCase()}\n\nlowercase:\n${v.toLowerCase()}\n\nTitle Case:\n${v.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase())}`;break;
+ case "Remove Extra Spaces":case "Remove Empty Lines":r=v.split(/\r?\n/).map(s=>name==="Remove Extra Spaces"?s.replace(/[ \t]+/g," ").trim():s).filter(s=>name==="Remove Empty Lines"?s.trim()!=="":true).filter(Boolean).join("\n");break;
+ case "Duplicate Line Remover":r=[...new Set(v.split(/\r?\n/))].join("\n");break;
+ case "Reverse Text":r=Array.from(v).reverse().join("");break;
+ case "Lorem Ipsum Generator":r=Array(Math.max(1,Math.min(10,num("amount",3)))).fill("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae justo sed sapien tempor tincidunt.").join("\n\n");break;
+ case "Find and Replace Text":r=val("find")?v.split(val("find")).join(val("replace")):"Enter text to find.";break;
+ case "Text to Binary Converter":r=Array.from(new TextEncoder().encode(v)).map(b=>b.toString(2).padStart(8,"0")).join(" ");break;
+ case "Text to Binary Decoder":{const bits=v.trim().split(/\s+/);if(!v.trim()){r="Enter binary bytes separated by spaces.";break;}if(bits.some(b=>!/^[01]{1,8}$/.test(b)))throw Error("Use binary bytes such as 01001000 01101001.");r=new TextDecoder().decode(new Uint8Array(bits.map(b=>parseInt(b,2))));break;}
+ case "Word Frequency Counter":{const m={};(v.toLowerCase().match(/[\p{L}\p{N}']+/gu)||[]).forEach(w=>m[w]=(m[w]||0)+1);r=Object.entries(m).sort((a,b)=>b[1]-a[1]).map(([w,c])=>`${w}: ${c}`).join("\n");break;}
+ case "Alphabetical List Sorter":case "Word and Line Sorter":{let a=v.split(/\r?\n/);a.sort((x,y)=>x.localeCompare(y));if(val("order")==="desc")a.reverse();r=a.join("\n");break;}
+ case "Line Numbering Tool":r=v.split(/\r?\n/).map((s,i)=>`${i+1}. ${s}`).join("\n");break;
+ case "Text Summarizer":{const s=v.split(/(?<=[.!?])\s+/).filter(Boolean);r=s.slice(0,Math.max(1,Math.ceil(s.length/3))).join(" ")||"Enter text first.";break;}
+ case "Grammar & Sentence Refiner":r=v.replace(/\s+/g," ").trim().replace(/\bi\b/g,"I").replace(/\s+([,.!?])/g,"$1");break;
+ case "Email & Message Writer":r=v?`Subject: ${v}\n\nHello,\n\nI am writing regarding ${v}. Please let me know when you are available to discuss this.\n\nThank you.`:"Enter the message purpose first.";break;
+ case "Poetry Prompt Generator":r=v?`Write original heartfelt poetry about "${v}". Use natural language, vivid imagery and an emotional ending.`:"Enter a theme first.";break;
+ case "Startup Idea Brainstormer":r=v?`1. Create a beginner guide about ${v}.\n2. Make a checklist for ${v}.\n3. Build a simple calculator related to ${v}.\n4. Create a comparison guide for ${v}.\n5. Make a short educational quiz about ${v}.`:"Enter a topic first.";break;
+ case "Product Name Generator":r=v?`${v}ly — Make it simple.\nNova ${v} — Ideas into action.\nSmart ${v} — Less effort, more results.\n${v}Nest — A better way to begin.`:"Enter a product idea first.";break;
+ case "Quiz & Question Generator":r=v?`1. What is ${v}?\n2. Why is ${v} important?\n3. Give an example of ${v}.\n4. What are the benefits of ${v}?\n5. Summarize ${v}.`:"Enter a topic first.";break;
+ case "Emoji Story & Sentiment Analyzer":{const p=(v.match(/love|happy|great|good|amazing|thanks|excellent/gi)||[]).length,q=(v.match(/sad|bad|hate|angry|upset|pain|terrible/gi)||[]).length;r=`Basic keyword estimate: ${p>q?"Positive":q>p?"Negative":"Neutral or unclear"}\nPositive keywords: ${p}\nNegative keywords: ${q}\nNote: This is a basic keyword check, not AI analysis.`;break;}
+ case "JSON Formatter & Validator":r=JSON.stringify(JSON.parse(v),null,2);break;
+ case "Base64 Encoder / Decoder":{try{r=decodeURIComponent(escape(atob(v.trim())));}catch(e){r=btoa(unescape(encodeURIComponent(v)));}break;}
+ case "URL Encoder / Decoder":{try{r=decodeURIComponent(v.replace(/\+/g," "));}catch(e){r=encodeURIComponent(v);}break;}
+ case "URL Slug Generator":r=v.toLowerCase().trim().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");break;
+ case "UUID Generator":r=crypto.randomUUID?crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{const x=Math.random()*16|0;return(c==="x"?x:(x&3|8)).toString(16)});break;
+ case "HTML Entity Encoder":r=v.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");break;
+ case "HTML Entity Decoder":{const t=document.createElement("textarea");t.innerHTML=v;r=t.value;break;}
+ case "Password Strength Checker":{let s=0;if(v.length>=8)s++;if(v.length>=12)s++;if(/[a-z]/.test(v)&&/[A-Z]/.test(v))s++;if(/\d/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;r=`Estimated strength: ${["Very weak","Weak","Fair","Good","Strong","Very strong"][s]}\nLength: ${v.length}\nDo not enter or share your real password on websites you do not trust.`;break;}
+ case "Percentage & Discount Calculator":{const a=num("a"),p=num("b");r=`${p}% of ${a}: ${(a*p/100).toFixed(2)}\nPrice after discount: ${(a-a*p/100).toFixed(2)}`;break;}
+ case "Age Calculator":{const d=new Date(val("birth"));if(!val("birth")||isNaN(d))throw Error("Choose a valid birth date.");const now=new Date();if(d>now)throw Error("Birth date cannot be in the future.");let age=now.getFullYear()-d.getFullYear();if(now.getMonth()<d.getMonth()||(now.getMonth()===d.getMonth()&&now.getDate()<d.getDate()))age--;r=`Age: ${age} years`;break;}
+ case "Temperature Converter":{const x=num("a"),u=val("unit"),c=u==="C"?x:u==="F"?(x-32)*5/9:x-273.15;r=`Celsius: ${c.toFixed(2)} °C\nFahrenheit: ${(c*9/5+32).toFixed(2)} °F\nKelvin: ${(c+273.15).toFixed(2)} K`;break;}
+ case "Data Storage Converter":{const x=num("a"),u=val("unit"),k=x*1024**(["KB","MB","GB","TB"].indexOf(u));r=`KB: ${k}\nMB: ${k/1024}\nGB: ${k/1024**2}\nTB: ${k/1024**3}\nNote: Uses 1024-based units.`;break;}
+ case "Leap Year Checker":{const y=num("a");r=`${y} ${((y%4===0&&y%100!==0)||y%400===0)?"is":"is not"} a leap year.`;break;}
+ case "BMI Calculator":{const w=num("a"),h=num("b")/100;if(w<=0||h<=0)throw Error("Enter positive weight and height.");r=`BMI: ${(w/(h*h)).toFixed(1)}\nThis is a general calculation, not a medical diagnosis.`;break;}
+ case "Average Calculator":{const a=v.split(/[,\s]+/).filter(Boolean).map(Number);if(!a.length||a.some(n=>!Number.isFinite(n)))throw Error("Enter numbers separated by spaces or commas.");r=`Count: ${a.length}\nSum: ${a.reduce((x,y)=>x+y,0)}\nAverage: ${a.reduce((x,y)=>x+y,0)/a.length}`;break;}
+ case "Random Number Generator":{let a=Math.ceil(num("a",1)),b=Math.floor(num("b",100));if(a>b)[a,b]=[b,a];if(b-a>1000000000000)throw Error("Range is too large.");r=String(Math.floor(Math.random()*(b-a+1))+a);break;}
+ case "Daily Planner Template":r="DATE:\n\nTOP PRIORITIES\n1.\n2.\n3.\n\nMORNING:\n\nAFTERNOON:\n\nEVENING:\n\nNOTES:";break;
+ case "Checklist Maker":r=v.split(/\r?\n/).filter(s=>s.trim()).map(s=>"- [ ] "+s).join("\n");break;
+ case "Social Media Image Size Guide":r="Instagram square post: 1080 × 1080 px\nInstagram portrait post: 1080 × 1350 px\nInstagram Story/Reel: 1080 × 1920 px\nYouTube thumbnail: 1280 × 720 px\nFacebook landscape post: 1200 × 630 px\nX/Twitter header: 1500 × 500 px\nSizes are common recommendations and can change.";break;
+ case "Read Time Calculator":case "Reading Word Counter":{const words=v.trim()?v.trim().split(/\s+/).length:0;r=`Words: ${words}\nCharacters: ${v.length}\nEstimated reading time: ${Math.max(1,Math.ceil(words/200))} minute(s) at 200 words per minute.`;break;}
+ case "Character Limit Checker":{const lim=Math.max(1,num("limit",160));r=`Characters used: ${v.length}\nLimit: ${lim}\nRemaining: ${lim-v.length}\nStatus: ${v.length<=lim?"Within limit":"Over limit by "+(v.length-lim)+" characters"}`;break;}
+ case "Random Password Generator":{const len=Math.max(8,Math.min(64,num("length",16))),chars="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*?";const a=new Uint8Array(len);crypto.getRandomValues(a);r=Array.from(a,b=>chars[b%chars.length]).join("");break;}
+ case "Percentage Increase Calculator":{const a=num("a"),b=num("b");if(a===0)throw Error("Starting value must not be zero.");r=`Change: ${(b-a).toFixed(2)}\nPercentage change: ${(((b-a)/Math.abs(a))*100).toFixed(2)}%`;break;}
+ case "Simple Interest Calculator":{const p=num("a"),rate=num("b"),years=num("years");const interest=p*rate*years/100;r=`Simple interest: ${interest.toFixed(2)}\nTotal amount: ${(p+interest).toFixed(2)}`;break;}
+ case "Compound Interest Calculator":{const p=num("a"),rate=num("b"),years=num("years"),freq=Math.max(1,num("freq",12));const total=p*Math.pow(1+rate/(100*freq),freq*years);r=`Total amount: ${total.toFixed(2)}\nCompound interest: ${(total-p).toFixed(2)}\nEstimate only; excludes fees and taxes.`;break;}
+ case "Days Between Dates":{const d1=new Date(val("date1")+"T00:00:00Z"),d2=new Date(val("date2")+"T00:00:00Z");if(!val("date1")||!val("date2")||isNaN(d1)||isNaN(d2))throw Error("Choose both dates.");r=`Days between dates: ${Math.abs(Math.round((d2-d1)/86400000))}`;break;}
+ case "Hours to Minutes Converter":{const x=num("a");r=`Minutes: ${x*60}\nSeconds: ${x*3600}`;break;}
+ case "Kilometers to Miles Converter":{const x=num("a");r=`Miles: ${(x*0.621371).toFixed(4)}\nMeters: ${x*1000}`;break;}
+ case "Weight Converter":{const x=num("a"),u=val("unit"),kg=u==="kg"?x:x/2.2046226218;r=`Kilograms: ${kg.toFixed(4)} kg\nPounds: ${(kg*2.2046226218).toFixed(4)} lb`;break;}
+ case "Case Alternator":r=Array.from(v).map((c,i)=>i%2?c.toLowerCase():c.toUpperCase()).join("");break;
+ case "Text Repeater":{const n=Math.max(1,Math.min(100,num("amount",3)));r=Array(n).fill(v).join("\n");break;}
+ case "HTML Preview Text":r=v;break;
+ case "Daily Affirmation Generator":r=["I can improve one step at a time.","My effort today can create better opportunities.","I am allowed to learn from mistakes.","Small consistent actions matter.","I can focus on what I can control."][Math.floor(Math.random()*5)];break;
+ case "Study Schedule Generator":r="STUDY PLAN\n\n08:00–08:25  Subject 1\n08:25–08:30  Short break\n08:30–08:55  Subject 2\n08:55–09:00  Short break\n09:00–09:25  Practice questions\n09:25–09:35  Review and recap\n\nAdjust the times to your routine.";break;
+ default:r="This tool is not implemented yet.";
  }
+ $("result").textContent=r;
+ $("status").textContent="";
+ }catch(e){$("result").textContent="";$("status").textContent="Please check your input: "+e.message;}
 }
 
 $("run").addEventListener("click",runTool);
-
 $("clear").addEventListener("click",()=>{
- const el=$("input");
- if(el)el.value="";
- ["find","replace","amount","birth","a","b","unit"].forEach(id=>{const e=$(id);if(e)e.value=""});
+ const el=$("input");if(el)el.value="";
+ ["find","replace","amount","birth","a","b","unit","limit","length","years","freq","date1","date2","order"].forEach(id=>{const e=$(id);if(e)e.value="";});
  $("result").textContent="Your result will appear here.";
  $("status").textContent="";
 });
-
 $("copy").addEventListener("click",async()=>{
- try {
-  await navigator.clipboard.writeText($("result").textContent);
-  $("status").textContent="Result copied.";
- } catch(e) {
-  $("status").textContent="Clipboard blocked. Select and copy the result manually.";
- }
+ try{await navigator.clipboard.writeText($("result").textContent);$("status").textContent="Result copied.";}
+ catch(e){$("status").textContent="Clipboard access blocked. Select and copy the result manually.";}
 });
-
 $("download").addEventListener("click",()=>{
  const blob=new Blob([$("result").textContent],{type:"text/plain;charset=utf-8"});
- const url=URL.createObjectURL(blob);
- const a=document.createElement("a");
- a.href=url;
- a.download="fexa-tools-result.txt";
- document.body.appendChild(a);
- a.click();
- a.remove();
+ const url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="fexa-tools-result.txt";document.body.appendChild(a);a.click();a.remove();
  setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
-
 $("categories").addEventListener("click",e=>{
- const b=e.target.closest("[data-cat]");
- if(!b)return;
- active=b.dataset.cat;
- renderCats();
- render();
+ const b=e.target.closest("[data-cat]");if(!b)return;active=b.dataset.cat;renderCats();render();
 });
-
 $("grid").addEventListener("click",e=>{
- const b=e.target.closest("[data-open]");
- if(b)openTool(b.dataset.open);
+ const b=e.target.closest("[data-open]");if(b)openTool(b.dataset.open);
 });
-
 $("search").addEventListener("input",render);
 $("searchBtn").addEventListener("click",render);
-$("search").addEventListener("keydown",e=>{if(e.key==="Enter")render()});
-$("close").addEventListener("click",()=>{$("workspace").hidden=true;selected=null});
-
+$("search").addEventListener("keydown",e=>{if(e.key==="Enter")render();});
+$("close").addEventListener("click",()=>{$("workspace").hidden=true;selected=null;});
 $("year").textContent=new Date().getFullYear();
-renderCats();
-render();
+renderCats();render();
 </script>
 </body>
 </html>
