@@ -275,6 +275,10 @@ $("year").textContent=new Date().getFullYear();
 $("popular").innerHTML=["Word & Character Counter","Case Converter","Strong Password Generator","Age Calculator"].map(n=>card(tools.find(t=>t.name===n))).join("");
 renderCategories();renderTools();
 
+function $(id) {
+  return document.getElementById(id);
+}
+
 function openTool(name){
 selectedTool=tools.find(t=>t.name===name);
 $("workspace").hidden=false;
