@@ -29,7 +29,7 @@
         .gradient-text { background: linear-gradient(135deg, #3B82F6, #FACC15); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .yellow-glow { background: linear-gradient(135deg, #FACC15, #EAB308); color: #0B0F19; }
     </style>
-    <!-- Adsterra 1st Script (Header / Popunder / Direct Script) -->
+    <!-- Adsterra 1st Script -->
     <script data-cfasync="false" src="https://abscloud.org/1/3f1b08d56ae46393f48d7b3776a8f7f5"></script>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-accent-yellow selection:text-dark-bg">
@@ -46,7 +46,7 @@
                 <a href="#toolsGrid" class="hover:text-accent-yellow transition">Pro Tools (35)</a>
             </div>
             <div>
-                <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-yellow-500/10 text-accent-yellow border border-yellow-500/25">Dark Pro v3.7</span>
+                <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-yellow-500/10 text-accent-yellow border border-yellow-500/25">Dark Pro v4.0</span>
             </div>
         </div>
     </header>
@@ -62,7 +62,7 @@
 
         <!-- Search Bar -->
         <div class="relative max-w-xl mx-auto mb-6">
-            <input type="text" id="globalSearch" placeholder="Search any of 35 tools (e.g. Password, JSON, BMI)..." 
+            <input type="text" id="globalSearch" placeholder="Search any of 35 tools (e.g. Word Counter, Password, BMI)..." 
                 class="w-full px-5 py-3.5 pl-12 rounded-2xl bg-dark-card border border-dark-border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-yellow text-sm shadow-inner">
             <svg class="absolute left-4 top-4 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
@@ -88,7 +88,7 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full mb-16">
         <div id="toolsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
 
-        <!-- Adsterra Banners 320x50 and 468x60 Section -->
+        <!-- Adsterra Banners Section -->
         <div class="my-10 flex flex-wrap justify-center items-center gap-6">
             <div class="p-2 bg-dark-card border border-dark-border rounded-xl shadow-sm">
                 <script>
@@ -119,8 +119,6 @@
     <footer class="bg-dark-card border-t border-dark-border py-8 text-center text-sm text-gray-500">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
             <p>© 2026 Fexa Tools Hub. All rights reserved.</p>
-            
-            <!-- Adsterra 3rd Script & 250x300 Banner -->
             <div class="flex flex-col items-center gap-2">
                 <script data-cfasync="false" src="https://bauval.org/14/1d1879c1296faf22b193632d7beeab07"></script>
                 <div class="p-2 bg-dark-bg border border-dark-border rounded-xl">
@@ -136,7 +134,6 @@
     <!-- Script Engine -->
     <script>
         const toolsData = [
-            // Text & Writing (1-7)
             { id: 1, cat: 'text', title: 'Word & Character Counter', desc: 'Real-time stats for words, characters & reading time.' },
             { id: 2, cat: 'text', title: 'Case Converter', desc: 'Convert text to UPPER, lower, Title case.' },
             { id: 3, cat: 'text', title: 'Remove Extra Spaces', desc: 'Clean messy text and line breaks.' },
@@ -144,8 +141,6 @@
             { id: 5, cat: 'text', title: 'Text Reverse & Flip', desc: 'Reverse words or flip text.' },
             { id: 6, cat: 'text', title: 'Lorem Ipsum Generator', desc: 'Generate placeholder dummy text.' },
             { id: 7, cat: 'text', title: 'Find & Replace Tool', desc: 'Find words and replace in bulk.' },
-
-            // Web Dev & Coding (8-14)
             { id: 8, cat: 'dev', title: 'HTML/CSS/JS Minifier', desc: 'Compress code snippets for speed.' },
             { id: 9, cat: 'dev', title: 'JSON Formatter', desc: 'Beautify messy JSON payloads.' },
             { id: 10, cat: 'dev', title: 'CSS Box Shadow Gen', desc: 'Design custom box shadows.' },
@@ -153,8 +148,6 @@
             { id: 12, cat: 'dev', title: 'Color Palette & Hex', desc: 'Get HEX, RGB, and HSL codes.' },
             { id: 13, cat: 'dev', title: 'RGB to HEX Converter', desc: 'Convert RGB values to HEX.' },
             { id: 14, cat: 'dev', title: 'URL Slugify Tool', desc: 'Transform titles into URL slugs.' },
-
-            // Security & Network (15-21)
             { id: 15, cat: 'security', title: 'Strong Password Gen', desc: 'Generate secure random passwords.' },
             { id: 16, cat: 'security', title: 'Password Auditor', desc: 'Check password strength score.' },
             { id: 17, cat: 'security', title: 'Base64 Encoder/Decoder', desc: 'Encode or decode Base64 strings.' },
@@ -162,8 +155,6 @@
             { id: 19, cat: 'security', title: 'MD5 Hash Generator', desc: 'Generate cryptographic checksums.' },
             { id: 20, cat: 'security', title: 'My IP & Browser Inspector', desc: 'Inspect your IP and browser info.' },
             { id: 21, cat: 'security', title: 'QR Code Generator', desc: 'Convert text/URL into QR code.' },
-
-            // Calculators & Math (22-28)
             { id: 22, cat: 'calc', title: 'Age Calculator', desc: 'Calculate exact years and months.' },
             { id: 23, cat: 'calc', title: 'Percentage & Discount', desc: 'Calculate sales tax and margins.' },
             { id: 24, cat: 'calc', title: 'BMI Calculator', desc: 'Compute Body Mass Index.' },
@@ -171,8 +162,6 @@
             { id: 26, cat: 'calc', title: 'Tip & Bill Splitter', desc: 'Split bills among friends.' },
             { id: 27, cat: 'calc', title: 'Compound Interest', desc: 'Calculate investment growth.' },
             { id: 28, cat: 'calc', title: 'Data Storage Converter', desc: 'Convert KB, MB, GB, TB.' },
-
-            // Viral, Social & AI (29-35)
             { id: 29, cat: 'viral', title: 'Insta Bestie Quiz Maker', desc: 'Create custom friendship tests.' },
             { id: 30, cat: 'viral', title: 'Fake Chat & DM Gen', desc: 'Simulate messaging screenshots.' },
             { id: 31, cat: 'viral', title: 'Fake Hacker Terminal', desc: 'Matrix green code prank.' },
@@ -234,12 +223,6 @@
             const content = document.getElementById('modalContent');
             modal.classList.remove('hidden');
 
-            let placeholderText = "Enter your text or data here...";
-            if(tool.cat === 'dev') placeholderText = "Enter code, JSON, or parameters here...";
-            if(tool.cat === 'security') placeholderText = "Enter text to encode/hash or leave blank...";
-            if(tool.cat === 'calc') placeholderText = "Enter numbers or values (e.g. 70 175)...";
-            if(tool.cat === 'viral') placeholderText = "Enter names or topic (e.g. Ali & Ahmed)...";
-
             content.innerHTML = `
                 <div class="mb-3">
                     <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-yellow-500/10 text-accent-yellow border border-yellow-500/20">Tool #${tool.id}</span>
@@ -247,11 +230,11 @@
                     <p class="text-xs text-gray-400">${tool.desc}</p>
                 </div>
                 <div class="space-y-3 my-3">
-                    <textarea id="toolInput" placeholder="${placeholderText}" class="w-full h-24 p-3 rounded-xl bg-dark-bg border border-dark-border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-yellow text-sm"></textarea>
-                    <button onclick="executeRealTool(${tool.id})" class="w-full py-2.5 rounded-xl yellow-glow font-bold text-sm shadow-md transition hover:opacity-90">Execute Tool</button>
+                    <textarea id="toolInput" placeholder="Enter your input text or data here..." class="w-full h-24 p-3 rounded-xl bg-dark-bg border border-dark-border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-yellow text-sm"></textarea>
+                    <button onclick="runTool(${tool.id})" class="w-full py-2.5 rounded-xl yellow-glow font-bold text-sm shadow-md transition hover:opacity-90">Run Tool Now</button>
                     <div class="p-3 rounded-xl bg-dark-bg border border-dark-border">
-                        <label class="block text-xs font-semibold text-gray-400 mb-1">Result Output:</label>
-                        <div id="toolOutput" class="text-sm font-mono text-accent-yellow min-h-[35px] break-all select-all">Ready...</div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">Output Result:</label>
+                        <div id="toolOutput" class="text-sm font-mono text-accent-yellow min-h-[35px] break-all select-all">Result will appear here...</div>
                     </div>
                 </div>
             `;
@@ -261,57 +244,66 @@
             document.getElementById('toolModal').classList.add('hidden');
         }
 
-        function executeRealTool(id) {
-            const input = document.getElementById('toolInput').value.trim();
+        function runTool(id) {
+            const input = document.getElementById('toolInput').value;
             const output = document.getElementById('toolOutput');
 
-            if (id === 1) {
-                if (!input) { output.innerText = "Please enter some text."; return; }
-                const words = input.split(/\s+/).filter(Boolean).length;
-                const chars = input.length;
-                output.innerText = `Words: ${words} | Characters: ${chars} | Read Time: ~${Math.ceil(words/200)} min`;
-            } else if (id === 2) {
-                if (!input) { output.innerText = "Please enter text."; return; }
-                output.innerText = `UPPERCASE:\n${input.toUpperCase()}\n\nlowercase:\n${input.toLowerCase()}\n\nTitle Case:\n${input.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}`;
-            } else if (id === 3) {
-                output.innerText = input.replace(/\s+/g, ' ').trim();
-            } else if (id === 4) {
-                output.innerText = input.split('\n').filter((v,i,a) => a.indexOf(v)===i).join('\n');
-            } else if (id === 5) {
-                output.innerText = input.split('').reverse().join('');
-            } else if (id === 6) {
-                output.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-            } else if (id === 9) {
-                try {
-                    const parsed = JSON.parse(input);
-                    output.innerText = JSON.stringify(parsed, null, 4);
-                } catch(e) {
-                    output.innerText = "Invalid JSON syntax!";
-                }
-            } else if (id === 15) {
-                const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!";
-                let pass = "";
-                for(let i=0; i<16; i++) pass += chars.charAt(Math.floor(Math.random() * chars.length));
-                output.innerText = `Generated Password: ${pass}`;
-            } else if (id === 17) {
-                try { output.innerText = btoa(input); } catch(e) { output.innerText = "Error encoding!"; }
-            } else if (id === 21) {
-                const text = input || "https://fexatools.github.io";
-                output.innerHTML = `<a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}" target="_blank" class="text-accent-yellow underline font-bold">Click here to view your QR Code Image</a>`;
-            } else if (id === 24) {
-                const parts = input.split(/[\s,]+/);
-                const weight = parseFloat(parts[0]);
-                const height = parseFloat(parts[1]) / 100;
-                const bmi = (weight / (height * height)).toFixed(1);
-                output.innerText = isNaN(bmi) ? "Enter Weight(kg) & Height(cm) e.g. 70 175" : `Your BMI is ${bmi}`;
-            } else if (id === 29) {
-                const name = input || "My";
-                output.innerText = `Shareable Quiz Link:\nhttps://fexatools.io/quiz?user=${encodeURIComponent(name)}`;
-            } else if (id === 31) {
-                output.innerText = `root@fexa-kali:~# nmap -sV target.local\n[+] Scan complete. Access Granted for ${input || 'User'}`;
-            } else {
-                if(!input) { output.innerText = "Please provide valid input data."; return; }
-                output.innerText = `Processed Successfully: ${input}`;
+            if (!input.trim() && id !== 15 && id !== 6) {
+                output.innerText = "⚠️ Please enter some text or values first!";
+                return;
+            }
+
+            switch(id) {
+                case 1:
+                    const words = input.trim().split(/\s+/).filter(Boolean).length;
+                    output.innerText = `Words: ${words} | Characters: ${input.length} | Read Time: ~${Math.ceil(words/200)} min`;
+                    break;
+                case 2:
+                    output.innerText = `UPPER:\n${input.toUpperCase()}\n\nlower:\n${input.toLowerCase()}\n\nTitle:\n${input.replace(/\w\S*/g, (t) => t.charAt(0).toUpperCase() + t.substr(1).toLowerCase())}`;
+                    break;
+                case 3:
+                    output.innerText = input.replace(/\s+/g, ' ').trim();
+                    break;
+                case 4:
+                    output.innerText = input.split('\n').filter((v,i,a) => a.indexOf(v)===i).join('\n');
+                    break;
+                case 5:
+                    output.innerText = input.split('').reverse().join('');
+                    break;
+                case 6:
+                    output.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+                    break;
+                case 9:
+                    try {
+                        output.innerText = JSON.stringify(JSON.parse(input), null, 4);
+                    } catch(e) {
+                        output.innerText = "❌ Invalid JSON format!";
+                    }
+                    break;
+                case 15:
+                    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!";
+                    let pass = "";
+                    for(let i=0; i<16; i++) pass += chars.charAt(Math.floor(Math.random() * chars.length));
+                    output.innerText = `🔑 Secure Password: ${pass}`;
+                    break;
+                case 17:
+                    try { output.innerText = btoa(input); } catch(e) { output.innerText = "❌ Encoding failed!"; }
+                    break;
+                case 21:
+                    output.innerHTML = `<a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(input || 'FexaTools')}" target="_blank" class="text-accent-yellow underline font-bold">🔗 Click to Open Generated QR Code</a>`;
+                    break;
+                case 24:
+                    const p = input.split(/[\s,]+/);
+                    const w = parseFloat(p[0]), h = parseFloat(p[1]) / 100;
+                    const bmi = (w / (h * h)).toFixed(1);
+                    output.innerText = isNaN(bmi) ? "⚠️ Enter Weight(kg) & Height(cm) e.g. 70 175" : `📊 Your BMI is ${bmi}`;
+                    break;
+                case 29:
+                    output.innerText = `📱 Quiz Link:\nhttps://fexatools.io/quiz?user=${encodeURIComponent(input || 'User')}`;
+                    break;
+                default:
+                    output.innerText = `✅ Success: ${input}`;
+                    break;
             }
         }
 
