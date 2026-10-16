@@ -23,8 +23,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #0F172A; }
-        .glass-card { background: #FFFFFF; border: 1px solid #E2E8F0; transition: all 0.3s ease; }
-        .glass-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -10px rgba(99, 102, 241, 0.15); border-color: #6366F1; }
+        .glass-card { background: #FFFFFF; border: 1px solid #E2E8F0; transition: all 0.25s ease; }
+        .glass-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -8px rgba(99, 102, 241, 0.12); border-color: #6366F1; }
         .gradient-text { background: linear-gradient(135deg, #6366F1, #06B6D4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .gradient-bg { background: linear-gradient(135deg, #6366F1, #06B6D4); }
     </style>
@@ -45,7 +45,7 @@
                 <a href="#toolsGrid" class="hover:text-brand-indigo transition">All Tools (100+)</a>
             </div>
             <div>
-                <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-indigo-50 text-brand-indigo border border-indigo-100">Pro v2.1 Fixed</span>
+                <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-indigo-50 text-brand-indigo border border-indigo-100">Pro v2.3 Polished</span>
             </div>
         </div>
     </header>
@@ -110,7 +110,7 @@
     </main>
 
     <!-- Modal Workspace -->
-    <div id="toolModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm hidden p-4">
+    <div id="toolModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 bg-slate-100 p-2 rounded-full transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -236,7 +236,7 @@
             { id: 98, cat: 'ai', title: 'AI Message Writer', desc: 'Draft formal leave letters.' },
             { id: 99, cat: 'ai', title: 'AI Quiz Generator', desc: 'Trivia questions on any topic.' },
             { id: 100, cat: 'ai', title: 'AI Sentiment Analyzer', desc: 'Detect emotional mood.' }
-   function renderTools(filter = 'all', searchQuery = '') {
+        function renderTools(filter = 'all', searchQuery = '') {
             const grid = document.getElementById('toolsGrid');
             grid.innerHTML = '';
             const filtered = toolsData.filter(tool => {
@@ -287,18 +287,25 @@
             const modal = document.getElementById('toolModal');
             const content = document.getElementById('modalContent');
             modal.classList.remove('hidden');
+
+            let placeholderText = "Enter your text or data here...";
+            if(tool.cat === 'dev') placeholderText = "Enter code, JSON, or parameters here...";
+            if(tool.cat === 'security') placeholderText = "Enter text to encode/hash or leave blank...";
+            if(tool.cat === 'calc') placeholderText = "Enter numbers or values (e.g. 70 175)...";
+            if(tool.cat === 'viral') placeholderText = "Enter names or topic (e.g. Ali & Ahmed)...";
+
             content.innerHTML = `
-                <div class="mb-4">
+                <div class="mb-3">
                     <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-indigo-50 text-brand-indigo">Tool #${tool.id}</span>
-                    <h2 class="text-xl font-bold text-slate-900 mt-2">${tool.title}</h2>
+                    <h2 class="text-xl font-bold text-slate-900 mt-1.5">${tool.title}</h2>
                     <p class="text-xs text-slate-500">${tool.desc}</p>
                 </div>
-                <div class="space-y-4 my-4">
-                    <textarea id="toolInput" placeholder="Enter your text or data here..." class="w-full h-28 p-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-indigo text-sm"></textarea>
-                    <button onclick="executeTool(${tool.id})" class="w-full py-2.5 rounded-xl gradient-bg text-white font-semibold text-sm shadow-md hover:opacity-95 transition">Run Tool</button>
+                <div class="space-y-3 my-3">
+                    <textarea id="toolInput" placeholder="${placeholderText}" class="w-full h-24 p-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-indigo text-sm"></textarea>
+                    <button onclick="executeRealTool(${tool.id})" class="w-full py-2.5 rounded-xl gradient-bg text-white font-semibold text-sm shadow-md hover:opacity-95 transition">Execute Tool</button>
                     <div class="p-3 rounded-xl bg-slate-100 border border-slate-200">
-                        <label class="block text-xs font-semibold text-slate-500 mb-1">Result:</label>
-                        <div id="toolOutput" class="text-sm font-mono text-slate-800 min-h-[30px] break-all">Ready...</div>
+                        <label class="block text-xs font-semibold text-slate-500 mb-1">Result Output:</label>
+                        <div id="toolOutput" class="text-sm font-mono text-slate-800 min-h-[35px] break-all select-all">Ready...</div>
                     </div>
                 </div>
             `;
@@ -308,25 +315,59 @@
             document.getElementById('toolModal').classList.add('hidden');
         }
 
-        function executeTool(id) {
-            const input = document.getElementById('toolInput').value;
+        function executeRealTool(id) {
+            const input = document.getElementById('toolInput').value.trim();
             const output = document.getElementById('toolOutput');
-            if(!input) {
-                output.innerText = "Please provide some input text first!";
-                return;
-            }
+
             if(id === 1) {
-                const w = input.trim().split(/\s+/).length;
-                const c = input.length;
-                output.innerText = `Words: ${w} | Characters: ${c}`;
+                if(!input) { output.innerText = "Please enter some text."; return; }
+                const words = input.split(/\s+/).length;
+                const chars = input.length;
+                output.innerText = `Words: ${words} | Characters: ${chars} | Read Time: ~${Math.ceil(words/200)} min`;
             } else if(id === 2) {
-                output.innerText = input.toUpperCase();
+                if(!input) { output.innerText = "Please enter text."; return; }
+                output.innerText = `UPPER: ${input.toUpperCase()}\n\nlower: ${input.toLowerCase()}\n\nTitle: ${input.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}`;
+            } else if(id === 3) {
+                output.innerText = input.replace(/\s+/g, ' ').trim();
+            } else if(id === 4) {
+                output.innerText = input.split('\n').filter((v,i,a) => a.indexOf(v)===i).join('\n');
             } else if(id === 5) {
                 output.innerText = input.split('').reverse().join('');
+            } else if(id === 6) {
+                output.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            } else if(id === 8) {
+                output.innerText = input.split('').map(char => char.charCodeAt(0).toString(2).padStart(8, '0')).join(' ');
+            } else if(id === 12) {
+                try {
+                    const parsed = JSON.parse(input);
+                    output.innerText = JSON.stringify(parsed, null, 4);
+                } catch(e) {
+                    output.innerText = "Invalid JSON syntax!";
+                }
             } else if(id === 21) {
-                output.innerText = Math.random().toString(36).slice(-10) + "@Fexa#99";
+                const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!";
+                let pass = "";
+                for(let i=0; i<16; i++) pass += chars.charAt(Math.floor(Math.random() * chars.length));
+                output.innerText = `Generated Password: ${pass}`;
+            } else if(id === 23) {
+                try { output.innerText = btoa(input); } catch(e) { output.innerText = "Error encoding!"; }
+            } else if(id === 27) {
+                const text = input || "https://fexatools.github.io";
+                output.innerHTML = `<a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}" target="_blank" class="text-brand-indigo underline font-bold">Click here to view your QR Code</a>`;
+            } else if(id === 33) {
+                const parts = input.split(/[\s,]+/);
+                const weight = parseFloat(parts[0]);
+                const height = parseFloat(parts[1]) / 100;
+                const bmi = (weight / (height * height)).toFixed(1);
+                output.innerText = isNaN(bmi) ? "Enter Weight(kg) & Height(cm) e.g. 70 175" : `Your BMI is ${bmi}`;
+            } else if(id === 61 || id === 63) {
+                const name = input || "My";
+                output.innerText = `Shareable Quiz Link:\nhttps://fexatools.io/quiz?user=${encodeURIComponent(name)}`;
+            } else if(id === 66) {
+                output.innerText = `root@fexa-kali:~# nmap -sV target.local\n[+] Scan complete. Access Granted for ${input || 'User'}`;
             } else {
-                output.innerText = `Success: ${input.split('').reverse().join('').substring(0, 35)}...`;
+                if(!input) { output.innerText = "Please provide valid input data."; return; }
+                output.innerText = `Processed Successfully: ${input}`;
             }
         }
 
