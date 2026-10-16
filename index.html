@@ -14,7 +14,16 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: { indigo: '#6366F1', cyan: '#06B6D4', dark: '#0F172A', light: '#F8FAFC' }
+                        dark: {
+                            bg: '#0B0F19',
+                            card: '#111827',
+                            border: '#1F2937'
+                        },
+                        accent: {
+                            blue: '#3B82F6',
+                            yellow: '#FACC15',
+                            cyan: '#06B6D4'
+                        }
                     }
                 }
             }
@@ -22,97 +31,82 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #0F172A; }
-        .glass-card { background: #FFFFFF; border: 1px solid #E2E8F0; transition: all 0.25s ease; }
-        .glass-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -8px rgba(99, 102, 241, 0.12); border-color: #6366F1; }
-        .gradient-text { background: linear-gradient(135deg, #6366F1, #06B6D4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .gradient-bg { background: linear-gradient(135deg, #6366F1, #06B6D4); }
+        body { font-family: 'Inter', sans-serif; background-color: #0B0F19; color: #F3F4F6; }
+        .glass-card { background: #111827; border: 1px solid #1F2937; transition: all 0.25s ease; }
+        .glass-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15); border-color: #3B82F6; }
+        .gradient-text { background: linear-gradient(135deg, #3B82F6, #FACC15); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-bg { background: linear-gradient(135deg, #3B82F6, #2563EB); }
+        .yellow-glow { background: linear-gradient(135deg, #FACC15, #EAB308); color: #0B0F19; }
     </style>
     <!-- Adsterra 1st Script -->
     <script data-cfasync="false" src="https://abscloud.org/1/3f1b08d56ae46393f48d7b3776a8f7f5"></script>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-brand-indigo selection:text-white">
+<body class="min-h-screen flex flex-col selection:bg-accent-yellow selection:text-dark-bg">
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <header class="sticky top-0 z-50 bg-[#0B0F19]/90 backdrop-blur-md border-b border-dark-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl shadow-md">⚡</div>
+                <div class="w-10 h-10 rounded-xl yellow-glow flex items-center justify-center font-bold text-xl shadow-lg">⚡</div>
                 <span class="text-xl font-bold tracking-tight gradient-text">Fexa Tools</span>
             </div>
-            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
-                <a href="#" class="hover:text-brand-indigo transition">Home</a>
-                <a href="#toolsGrid" class="hover:text-brand-indigo transition">All Tools (100+)</a>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-400">
+                <a href="#" class="hover:text-accent-yellow transition">Home</a>
+                <a href="#toolsGrid" class="hover:text-accent-yellow transition">All Tools (100+)</a>
             </div>
             <div>
-                <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-indigo-50 text-brand-indigo border border-indigo-100">Pro v2.3 Polished</span>
+                <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-yellow-500/10 text-accent-yellow border border-yellow-500/20">Dark Pro v3.0</span>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="py-10 px-4 max-w-4xl mx-auto text-center">
-        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-3">
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
             The Ultimate <span class="gradient-text">100+ Free Tools</span> Hub
         </h1>
-        <p class="text-sm sm:text-base text-slate-600 mb-6">
-            Instant utilities, coding tools, security auditors, calculators, and viral fun tools. Completely free & fast.
+        <p class="text-sm sm:text-base text-gray-400 mb-6 max-w-2xl mx-auto">
+            Instant utilities, coding tools, security auditors, calculators, and viral fun tools. Completely free, fast & secure.
         </p>
 
         <!-- Search Bar -->
         <div class="relative max-w-xl mx-auto mb-6">
             <input type="text" id="globalSearch" placeholder="Search any of 100+ tools (e.g. Word Counter, Password, BMI)..." 
-                class="w-full px-5 py-3.5 pl-12 rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-indigo text-sm">
-            <svg class="absolute left-4 top-4 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                class="w-full px-5 py-3.5 pl-12 rounded-2xl bg-dark-card border border-dark-border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-yellow text-sm shadow-inner">
+            <svg class="absolute left-4 top-4 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
 
-        <!-- Adsterra 2nd Ad Container & Script -->
-        <div class="my-4 p-3 bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col items-center justify-center overflow-x-auto">
+        <!-- Safe Ad Container -->
+        <div class="my-4 p-3 bg-dark-card border border-dark-border rounded-2xl shadow-sm flex flex-col items-center justify-center min-h-[60px] overflow-hidden">
             <script async="async" data-cfasync="false" src="https://bauval.org/21/73f48bba913cccbbee967a63eb1c42dd"></script>
             <div id="container-73f48bba913cccbbee967a63eb1c42dd"></div>
         </div>
 
         <!-- Categories -->
-        <div id="categoryPills" class="flex flex-wrap justify-center gap-2 mb-8">
-            <button onclick="filterCategory('all')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-white shadow-sm transition">All Tools</button>
-            <button onclick="filterCategory('text')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">📝 Text</button>
-            <button onclick="filterCategory('dev')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">💻 Dev</button>
-            <button onclick="filterCategory('security')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">🔐 Security</button>
-            <button onclick="filterCategory('calc')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">🧮 Calculators</button>
-            <button onclick="filterCategory('image')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">🖼️ Image</button>
-            <button onclick="filterCategory('productivity')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">⏱️ Productivity</button>
-            <button onclick="filterCategory('viral')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">🔥 Viral & Fun</button>
-            <button onclick="filterCategory('greeting')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">🎉 Greetings</button>
-            <button onclick="filterCategory('docs')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">📄 Files</button>
-            <button onclick="filterCategory('ai')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">🤖 AI Suite</button>
+        <div id="categoryPills" class="flex flex-wrap justify-center gap-2 mt-4 mb-8">
+            <button onclick="filterCategory('all')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold yellow-glow shadow-md transition">All Tools</button>
+            <button onclick="filterCategory('text')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">📝 Text</button>
+            <button onclick="filterCategory('dev')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">💻 Dev</button>
+            <button onclick="filterCategory('security')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">🔐 Security</button>
+            <button onclick="filterCategory('calc')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">🧮 Calculators</button>
+            <button onclick="filterCategory('image')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">🖼️ Image</button>
+            <button onclick="filterCategory('productivity')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">⏱️ Productivity</button>
+            <button onclick="filterCategory('viral')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">🔥 Viral & Fun</button>
+            <button onclick="filterCategory('greeting')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">🎉 Greetings</button>
+            <button onclick="filterCategory('docs')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">📄 Files</button>
+            <button onclick="filterCategory('ai')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition">🤖 AI Suite</button>
         </div>
     </section>
 
     <!-- Main Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full mb-16">
         <div id="toolsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
-
-        <!-- Adsterra Banners 320x50 & 468x60 -->
-        <div class="my-10 flex flex-wrap justify-center items-center gap-6">
-            <div class="p-2 bg-white border border-slate-200 rounded-xl shadow-sm">
-                <script>
-                  atOptions = { 'key' : 'b6b9df6bd3dd5c323fd5a252fcb2a1e4', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-                </script>
-                <script src="https://bauval.org/22/b6b9df6bd3dd5c323fd5a252fcb2a1e4"></script>
-            </div>
-            <div class="p-2 bg-white border border-slate-200 rounded-xl shadow-sm">
-                <script>
-                  atOptions = { 'key' : '7ef6d48c18f3537e813f4fd3d44e5adb', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
-                </script>
-                <script src="https://bauval.org/22/7ef6d48c18f3537e813f4fd3d44e5adb"></script>
-            </div>
-        </div>
     </main>
 
     <!-- Modal Workspace -->
-    <div id="toolModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 bg-slate-100 p-2 rounded-full transition">
+    <div id="toolModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-dark-card rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-dark-border relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-dark-border p-2 rounded-full transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
             <div id="modalContent"></div>
@@ -120,16 +114,10 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-6 text-center text-sm text-slate-500">
+    <footer class="bg-dark-card border-t border-dark-border py-6 text-center text-sm text-gray-500">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>© 2026 Fexa Tools Hub. All rights reserved.</p>
             <script data-cfasync="false" src="https://bauval.org/14/1d1879c1296faf22b193632d7beeab07"></script>
-            <div class="p-2">
-                <script>
-                  atOptions = { 'key' : '5fedc7ba23cff82d6eb2985907d58bff', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
-                </script>
-                <script src="https://bauval.org/22/5fedc7ba23cff82d6eb2985907d58bff"></script>
-            </div>
         </div>
     </footer>
 
@@ -236,6 +224,8 @@
             { id: 98, cat: 'ai', title: 'AI Message Writer', desc: 'Draft formal leave letters.' },
             { id: 99, cat: 'ai', title: 'AI Quiz Generator', desc: 'Trivia questions on any topic.' },
             { id: 100, cat: 'ai', title: 'AI Sentiment Analyzer', desc: 'Detect emotional mood.' }
+        ];
+
         function renderTools(filter = 'all', searchQuery = '') {
             const grid = document.getElementById('toolsGrid');
             grid.innerHTML = '';
@@ -247,21 +237,20 @@
             });
 
             if(filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">No tools found matching your search.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">No tools found matching your search.</div>`;
                 return;
-            }
-
+        }
             filtered.forEach(tool => {
                 const card = document.createElement('div');
                 card.className = 'glass-card rounded-2xl p-5 flex flex-col justify-between cursor-pointer';
                 card.onclick = () => openToolModal(tool);
                 card.innerHTML = `
                     <div>
-                        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-brand-indigo flex items-center justify-center font-bold mb-3">#${tool.id}</div>
-                        <h3 class="font-bold text-slate-800 mb-1 text-base">${tool.title}</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">${tool.desc}</p>
+                        <div class="w-10 h-10 rounded-xl bg-yellow-500/10 text-accent-yellow flex items-center justify-center font-bold mb-3 border border-yellow-500/20">#${tool.id}</div>
+                        <h3 class="font-bold text-white mb-1 text-base">${tool.title}</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">${tool.desc}</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-indigo">
+                    <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between text-xs font-semibold text-accent-yellow">
                         <span>Use Tool</span>
                         <span>→</span>
                     </div>
@@ -272,9 +261,9 @@
 
         function filterCategory(cat) {
             document.querySelectorAll('.cat-pill').forEach(btn => {
-                btn.className = 'cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition';
+                btn.className = 'cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-dark-card text-gray-300 border border-dark-border hover:bg-dark-border transition';
             });
-            event.target.className = 'cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-white shadow-sm transition';
+            event.target.className = 'cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold yellow-glow shadow-md transition';
             const query = document.getElementById('globalSearch').value;
             renderTools(cat, query);
         }
@@ -296,16 +285,16 @@
 
             content.innerHTML = `
                 <div class="mb-3">
-                    <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-indigo-50 text-brand-indigo">Tool #${tool.id}</span>
-                    <h2 class="text-xl font-bold text-slate-900 mt-1.5">${tool.title}</h2>
-                    <p class="text-xs text-slate-500">${tool.desc}</p>
+                    <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-yellow-500/10 text-accent-yellow border border-yellow-500/20">Tool #${tool.id}</span>
+                    <h2 class="text-xl font-bold text-white mt-2">${tool.title}</h2>
+                    <p class="text-xs text-gray-400">${tool.desc}</p>
                 </div>
                 <div class="space-y-3 my-3">
-                    <textarea id="toolInput" placeholder="${placeholderText}" class="w-full h-24 p-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-indigo text-sm"></textarea>
-                    <button onclick="executeRealTool(${tool.id})" class="w-full py-2.5 rounded-xl gradient-bg text-white font-semibold text-sm shadow-md hover:opacity-95 transition">Execute Tool</button>
-                    <div class="p-3 rounded-xl bg-slate-100 border border-slate-200">
-                        <label class="block text-xs font-semibold text-slate-500 mb-1">Result Output:</label>
-                        <div id="toolOutput" class="text-sm font-mono text-slate-800 min-h-[35px] break-all select-all">Ready...</div>
+                    <textarea id="toolInput" placeholder="${placeholderText}" class="w-full h-24 p-3 rounded-xl bg-dark-bg border border-dark-border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-yellow text-sm"></textarea>
+                    <button onclick="executeRealTool(${tool.id})" class="w-full py-2.5 rounded-xl yellow-glow font-bold text-sm shadow-md transition hover:opacity-90">Execute Tool</button>
+                    <div class="p-3 rounded-xl bg-dark-bg border border-dark-border">
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">Result Output:</label>
+                        <div id="toolOutput" class="text-sm font-mono text-accent-yellow min-h-[35px] break-all select-all">Ready...</div>
                     </div>
                 </div>
             `;
@@ -353,7 +342,7 @@
                 try { output.innerText = btoa(input); } catch(e) { output.innerText = "Error encoding!"; }
             } else if(id === 27) {
                 const text = input || "https://fexatools.github.io";
-                output.innerHTML = `<a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}" target="_blank" class="text-brand-indigo underline font-bold">Click here to view your QR Code</a>`;
+                output.innerHTML = `<a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}" target="_blank" class="text-accent-yellow underline font-bold">Click here to view your QR Code</a>`;
             } else if(id === 33) {
                 const parts = input.split(/[\s,]+/);
                 const weight = parseFloat(parts[0]);
@@ -374,4 +363,4 @@
         renderTools();
     </script>
 </body>
-</html>
+</html
